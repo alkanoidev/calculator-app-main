@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+.theme1{
+  --bodyBg: #3B4664;
+  --screenBg: #181F32;
+  --textKeys: #FFFFFF;
+  --textKeys1: #FFFFFF;
+  --keysBg: #EAE3DB;
+  --keysShadow: #B6A499;
+  --keypadBg: #252D44;
+  --keyEqualsShadow: #8F2316;
+  --keyEqualsBg: #D13F30 ;
+  --delResetBg:  #647299; 
+  --delResetShadow: #424E75;
+  --text3btn: #FDFFFF;
+  --keysText: #404655;
+}
+.theme2{
+  --bodyBg: #E6E6E6;
+  --screenBg: #EEEEEE;
+  --textKeys: hsl(60, 10%, 19%);
+  --textKeys1: #F5FFFF;
+  --keysBg: #E5E4E0;
+  --keysShadow: #A69E90;
+  --keypadBg: #D3CDCD;
+  --keyEqualsShadow: #883A01;
+  --keyEqualsBg: #C85401;
+  --delResetBg: #388186;
+  --delResetShadow: #1E6466;
+  --text3btn: #FCFFFF;
+  --keysText: #37362D;
+}
+.theme3{
+  --bodyBg: #17062A;
+  --screenBg: #1E0836;
+  --textKeys: #FCE535;
+  --textKeys1: #FFE445;
+  --keysBg: #331B4D;
+  --keysShadow: #851C9C;
+  --keypadBg: #1E0935;
+  --keyEqualsShadow: #6EFAF1;
+  --keyEqualsBg: #00DECF;
+  --delResetBg: #56077C;
+  --delResetShadow: #BF15F4;
+  --text3btn: #FFFDFF;
+  --keysText: #FFE239;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+  transition: 0.2s;
+}
+* body {
+  background-color: var(--bodyBg);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 35%;
+  padding-top: 10px;
+}
+@media only screen and (max-width: 1024px) {
+  * body .container {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  * body .container {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  * body .container {
+    width: 90%;
+  }
+}
+* body .container #text1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  align-items: center;
+}
+* body .container #text1 h1 {
+  color: var(--textKeys);
+  font-size: 25px;
+}
+* body .container #text1 .themes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+* body .container #text1 .themes h4 {
+  color: var(--textKeys);
+  font-size: 16px;
+  padding-right: 10px;
+}
+* body .container #text1 .themes form {
+  --background: #ffffff;
+  --text: #414856;
+  --radio: #7C96B2;
+  --radio-checked: #d13f30;
+  --radio-size: 25px;
+  --width: 100px;
+  --height: 140px;
+  --border-radius: 10px;
+  margin-top: 10px;
+  color: var(--text);
+  position: relative;
+  display: flex;
+  grid-template-columns: auto var(--radio-size);
+  align-items: center;
+}
+* body .container #text1 .themes form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  height: var(--radio-size);
+  width: var(--radio-size);
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  border: 2px solid var(--radio);
+  background: transparent;
+  border-radius: 50%;
+  display: grid;
+  justify-self: end;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border 0.5s ease;
+  margin-right: 5px;
+}
+* body .container #text1 .themes form input[type=radio]::before, * body .container #text1 .themes form input[type=radio]::after {
+  content: "";
+  display: flex;
+  justify-self: center;
+  border-radius: 50%;
+}
+* body .container #text1 .themes form input[type=radio]::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  opacity: var(--opacity, 1);
+}
+* body .container #text1 .themes form input[type=radio]::after {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background: var(--radio-checked);
+  top: var(--y, 100%);
+  transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+}
+* body .container #text1 .themes form input[type=radio]:checked {
+  --radio: var(--radio-checked);
+}
+* body .container #text1 .themes form input[type=radio]:checked::after {
+  --y: 0%;
+  animation: stretch-animate 0.3s ease-out 0.17s;
+}
+* body .container #text1 .themes form input[type=radio]:checked::before {
+  --opacity: 0;
+}
+* body .container #text1 .themes form input[type=radio]:checked ~ input[type=radio]::after {
+  --y: -100%;
+}
+* body .container #text1 .themes form input[type=radio]:not(:checked)::before {
+  --opacity: 1;
+  transition: opacity 0s linear 0.5s;
+}
+@keyframes stretch-animate {
+  0% {
+    transform: scale(1, 1);
+  }
+  28% {
+    transform: scale(1.15, 0.85);
+  }
+  50% {
+    transform: scale(0.9, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+* body .container .res {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: var(--screenBg);
+  height: 120px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+* body .container .res h1 {
+  padding-right: 30px;
+  font-size: 3rem;
+  color: var(--textKeys);
+}
+@media only screen and (max-width: 320px) {
+  * body .container .res h1 {
+    font-size: 2rem;
+  }
+}
+* body .container .buttons {
+  background-color: var(--keypadBg);
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . ." "reset reset equals equals";
+  height: 600px;
+  padding: 30px;
+  border-radius: 5%;
+}
+@media only screen and (max-width: 425px) {
+  * body .container .buttons {
+    gap: 5px;
+    height: 500px;
+  }
+}
+* body .container .buttons .btn {
+  width: 90%;
+  height: 90%;
+  background-color: var(--keysBg);
+  font-size: 32px;
+  color:  var(--keysText);;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 0px 0px var(--keysShadow);
+  box-shadow: 0px 5px 0px 0px var(--keysShadow);
+}
+@media only screen and (max-width: 425px) {
+  * body .container .buttons .btn {
+    width: 90%;
+    height: 90%;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 320px) {
+  * body .container .buttons .btn {
+    font-size: 2rem;
+    width: 90%;
+    height: 90%;
+  }
+}
+* body .container .buttons .btn:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transform: translateY(5px);
+}
+* body .container .buttons #_del {
+  background-color: var(--delResetBg);
+  color:  var(--text3btn);;
+  text-transform: lowercase;
+  -webkit-box-shadow: 0px 5px 0px 0px var(--delResetShadow);
+  box-shadow: 0px 5px 0px 0px var(--delResetShadow);
+}
+* body .container .buttons #reset{
+  background-color: var(--delResetBg);
+  color:  var(--text3btn);;
+  text-transform: lowercase;
+  -webkit-box-shadow: 0px 5px 0px 0px var(--delResetShadow);
+  box-shadow: 0px 5px 0px 0px var(--delResetShadow);
+}
+* body .container .buttons #reset:active,
+* body .container .buttons #_del:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+* body .container .buttons #equals {
+  background-color: var(--keyEqualsBg);
+  color:  var(--text3btn);;
+  -webkit-box-shadow: 0px 5px 0px 0px var(--keyEqualsShadow);
+  box-shadow: 0px 5px 0px 0px var(--keyEqualsShadow);
+}
+* body .container .buttons #equals:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+* body .container ._7 {
+  grid-area: 1/1/2/2;
+}
+* body .container ._8 {
+  grid-area: 1/2/2/3;
+}
+* body .container ._9 {
+  grid-area: 1/3/2/4;
+}
+* body .container .del {
+  grid-area: 1/4/2/5;
+}
+* body .container ._4 {
+  grid-area: 2/1/3/2;
+}
+* body .container ._5 {
+  grid-area: 2/2/3/3;
+}
+* body .container ._6 {
+  grid-area: 2/3/3/4;
+}
+* body .container .plus {
+  grid-area: 2/4/3/5;
+}
+* body .container ._1 {
+  grid-area: 3/1/4/2;
+}
+* body .container ._2 {
+  grid-area: 3/2/4/3;
+}
+* body .container ._3 {
+  grid-area: 3/3/4/4;
+}
+* body .container .minus {
+  grid-area: 3/4/4/5;
+}
+* body .container .dot {
+  grid-area: 4/1/5/2;
+}
+* body .container ._0 {
+  grid-area: 4/2/5/3;
+}
+* body .container .division {
+  grid-area: 4/3/5/4;
+}
+* body .container .multiplication {
+  grid-area: 4/4/5/5;
+}
+* body .container .reset {
+  grid-area: 5/1/6/3;
+}
+* body .container .equals {
+  grid-area: 5/3/6/5;
+}
+* body .container .reset {
+  grid-area: reset;
+}
+* body .container .equals {
+  grid-area: equals;
+}

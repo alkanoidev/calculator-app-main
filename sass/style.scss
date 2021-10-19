@@ -1,0 +1,334 @@
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+$mainbackground: hsl(222, 26%, 31%);
+$equalsBg: hsl(6, 63%, 50%);
+$keypadBg:  hsl(223, 31%, 20%);
+$screenBg: hsl(224, 36%, 15%);
+$keyBg1: hsl(225, 21%, 49%);
+$keyBg2: hsl(30, 25%, 89%);
+$keyText: hsl(221, 14%, 31%);
+$textWhite: hsl(0, 0, 100%);
+$keyShadowMain: hsl(28, 16%, 65%);
+$keyShadow2: hsl(224, 28%, 35%);
+$equalsShadow: hsl(6, 70%, 34%); 
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+
+  body {
+    background-color: $mainbackground;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    .container {
+      background-color: $mainbackground;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 35%;
+      padding-top: 10px;
+      @media only screen and(max-width: 1024px) {
+        width: 50%;
+      }
+      @media only screen and(max-width: 768px) {
+        width: 70%;
+      }
+      @media only screen and(max-width: 425px) {
+        width: 90%;
+      }
+
+      #text1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px;
+        align-items: center;
+        // line-height: 55px;
+        h1 {
+          color: $textWhite;
+          font-size: 25px;
+        }
+        .themes{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          h4 {
+            color: $textWhite;
+            font-size: 16px;
+            
+            padding-right: 10px;
+            text-transform: uppercase;
+          }
+          form {
+            --background: #ffffff;
+            --text: #414856;
+            --radio: #7C96B2;
+            --radio-checked: #d13f30;
+            --radio-size: 25px;
+            --width: 100px;    
+            --height: 140px;
+            --border-radius: 10px;
+            // width: var(--width);
+            // height: var(--height); 
+            margin-top: 10px;
+            color: var(--text);
+            position: relative;
+            display: flex;
+            grid-template-columns: auto var(--radio-size);
+            align-items: center;
+            input[type="radio"] {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              position: relative;
+              height: var(--radio-size);
+              width: var(--radio-size);
+              outline: none;
+              margin: 0;
+              cursor: pointer;
+              border: 2px solid var(--radio);
+              background: transparent;
+              border-radius: 50%;
+              display: grid;
+              justify-self: end;
+              justify-items: center;
+              align-items: center;
+              overflow: hidden;
+              transition: border .5s ease;
+              margin-right: 5px;
+              &::before,
+              &::after {
+                content: "";
+                display: flex;
+                justify-self: center;
+                border-radius: 50%;
+              }
+              &::before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                z-index: 1;
+                opacity: var(--opacity, 1);
+              }
+              &::after {
+                position: relative;
+                width: calc(100% /2);
+                height: calc(100% /2);
+                background: var(--radio-checked);
+                top: var(--y, 100%);
+                transition: top .5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+              }
+              &:checked {
+                --radio: var(--radio-checked);
+                &::after {
+                  --y: 0%;
+                  animation: stretch-animate .3s ease-out .17s;
+                }
+                &::before {
+                  --opacity: 0;
+                }
+                ~ input[type="radio"] {
+                  &::after {
+                    --y: -100%;
+                  }
+                }
+              }
+              &:not(:checked) {
+                &::before {
+                  --opacity: 1;
+                  transition: opacity 0s linear .5s;
+                }
+              }
+            }
+          }
+          @keyframes stretch-animate {
+            0% {
+              transform: scale(1,1)
+            }
+            28% {
+              transform: scale(1.15,.85)
+            }
+            50% {
+              transform: scale(.9,1.1)
+            }
+            100% {
+              transform: scale(1,1)
+            }
+          }
+        }
+        
+      }
+
+      .res {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        background-color: $screenBg;
+        height: 120px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        h1 {
+          padding-right: 30px;
+          font-size: 3rem;
+          color: $textWhite;
+          @media only screen and(max-width: 320px) {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .buttons {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        grid-template-areas:
+          ". . . ."
+          ". . . ."
+          ". . . ."
+          ". . . ."
+          "reset reset equals equals";
+        height: 600px;
+        @media only screen and(max-width: 425px) {
+          gap: 5px;
+          height: 500px;
+        }
+
+        .btn {
+          width: 90%;
+          height: 90%;
+          background-color: $keyBg2;
+          font-size: 32px;
+          color: $keyText;
+          border: none;
+          outline: none;
+          border-radius: 10px;
+
+          -webkit-box-shadow: 0px 5px 0px 0px $keyShadowMain;
+          box-shadow: 0px 5px 0px 0px $keyShadowMain;
+
+          @media only screen and(max-width: 425px) {
+            width: 90%;
+            height: 90%;
+            font-size: 2rem;
+          }
+          @media only screen and(max-width: 320px) {
+            font-size: 2rem;
+            width: 90%;
+            height: 90%;
+          }
+        }
+        .btn:hover {
+          cursor: pointer;
+          background-color: #eae3dbdc;
+        }
+        .btn:active {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          transform: translateY(5px);
+        }
+        #_reset,
+        #_del {
+          background-color: $keyBg1;
+          color: $textWhite;
+          text-transform: lowercase;
+
+          -webkit-box-shadow: 0px 5px 0px 0px $keyShadow2;
+          box-shadow: 0px 5px 0px 0px $keyShadow2;
+
+        }
+        #_reset:hover,
+        #_del:hover {
+          background-color: #647299cc;
+        }
+        #reset:active,
+        #_del:active {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+        #equals {
+          background-color: $equalsBg;
+          color: $textWhite;
+          -webkit-box-shadow: 0px 5px 0px 0px $equalsShadow;
+          box-shadow: 0px 5px 0px 0px $equalsShadow;
+        }
+        #equals:hover {
+          background-color: hsla(6, 64%, 45%, 1);
+        }
+        #equals:active {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+      }
+      ._7 {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      ._8 {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      ._9 {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+      .del {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+      ._4 {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      ._5 {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      ._6 {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+      .plus {
+        grid-area: 2 / 4 / 3 / 5;
+      }
+      ._1 {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      ._2 {
+        grid-area: 3 / 2 / 4 / 3;
+      }
+      ._3 {
+        grid-area: 3 / 3 / 4 / 4;
+      }
+      .minus {
+        grid-area: 3 / 4 / 4 / 5;
+      }
+      .dot {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+      ._0 {
+        grid-area: 4 / 2 / 5 / 3;
+      }
+      .division {
+        grid-area: 4 / 3 / 5 / 4;
+      }
+      .multiplication {
+        grid-area: 4 / 4 / 5 / 5;
+      }
+      .reset {
+        grid-area: 5 / 1 / 6 / 3;
+      }
+      .equals {
+        grid-area: 5 / 3 / 6 / 5;
+      }
+      .reset {
+        grid-area: reset;
+      }
+      .equals {
+        grid-area: equals;
+      }
+    }
+  }
+}

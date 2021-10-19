@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Calculator app</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
+  <script type="module" src="./js/app.js" defer></script>
+</head>
+
+<body>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/alkanoidev">@alkanoidev</a>.
+  </div>
+
+  <div class="container">
+    <div id="text1">
+      <h1>calc</h1>
+      <div class="themes">
+        <h4>theme</h4>
+        <form>
+          <input id="theme1" type="radio" name="theme" value="1" class="themesRadio">
+          <input id="theme2" type="radio" name="theme" value="2" class="themesRadio">
+          <input id="theme3" type="radio" name="theme" value="3" class="themesRadio">
+        </form>
+      </div>
+      
+    </div>
+
+    <div class="res">
+      <h1 data-result id="result"></h1>
+    </div>
+
+    <div class="buttons">
+      <button data-number id="_7" class="btn _7">7</button>
+      <button data-number id="_8" class="btn _8">8</button>
+      <button data-number id="_9" class="btn _9">9</button>
+      <button data-delete id="_del" class="btn del">del</button>
+      <button data-number id="_4" class="btn _4">4</button>
+      <button data-number id="_5" class="btn _5">5</button>
+      <button data-number id="_6" class="btn _6">6</button>
+      <button data-operation id="_plus" class="btn plus">+</button>
+      <button data-number id="_1" class="btn _1">1</button>
+      <button data-number id="_2" class="btn _2">2</button>
+      <button data-number id="_3" class="btn _3">3</button>
+      <button data-operation id="_minus" class="btn minus">-</button>
+      <button id="_dot" class="btn dot">.</button>
+      <button data-number id="_0" class="btn _0">0</button>
+      <button data-operation id="_division" class="btn division">/</button>
+      <button data-operation id="_multiplication" class="btn multiplication">x</button>
+
+      <div class="reset">
+        <button data-reset id="reset" class="btn">reset</button>
+      </div>
+      <div class="equals">
+        <button data-equals id="equals" class="btn">=</button>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+</html>
