@@ -66,5 +66,5 @@ secondOperand = displayValue.split(operator).pop();
 ## Author
 
 - Email - alkanoidev@gmail.com
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/alkanoidev)
-@alkanoidev
+- Frontend Mentor - [@alkanoidev](https://www.frontendmentor.io/profile/alkanoidev)
+- @alkanoidev
