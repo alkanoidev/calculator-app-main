@@ -35,7 +35,7 @@ Users should be able to:
 ### Something I'm proud of:
 ```js
 window.onload = () => {
-  preferences = localStorage.getItem("theme");
+  preferences = localStorage.getItem("theme")==undefined ? 1 : localStorage.getItem("theme");
   document.documentElement.className = `theme${preferences}`;
   radios[Number(preferences)-1].checked=true;
 };
