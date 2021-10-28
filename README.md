@@ -1,5 +1,6 @@
 # Frontend Mentor - Calculator app solution
-
+<img src="android/android-launchericon-144-144.png" alt="failed to load" width="30%"/>
+<br>
 This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Overview
@@ -32,6 +33,7 @@ Users should be able to:
 - Vanilla JavaScript
 - localStorage
 - JavaScript modules
+- PWA
 
 ### Something I'm proud of:
 ```js
