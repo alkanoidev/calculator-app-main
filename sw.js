@@ -31,8 +31,8 @@ var URLS = [
   // Add URL you want to cache in this list.
   "/calculator-app-main/", // If you have separate JS/CSS files,
   "/calculator-app-main/index.html", // add path to those files here
-  '/calculator-app-main/css/style.css',
-  '/calculator-app-main/js/app.js'
+  "/calculator-app-main/css/style.css",
+  "/calculator-app-main/js/app.js"
 ];
 
 // Respond with cached resources
