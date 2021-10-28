@@ -11,8 +11,8 @@ import {
 window.onload = () => {
   "use strict";
 
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/calculator-app-main/sw.js', {scope: '/calculator-app-main/'})
   }
 
   preferences = localStorage.getItem("theme") == undefined ? 1 : localStorage.getItem("theme");
