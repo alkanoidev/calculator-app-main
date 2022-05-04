@@ -65,9 +65,3 @@ secondOperand = displayValue.split(operator).pop();
   height: 600px;
 }
 ```
-
-## Author
-
-- Email - alkanoidev@gmail.com
-- Frontend Mentor - [@alkanoidev](https://www.frontendmentor.io/profile/alkanoidev)
-- @alkanoidev
