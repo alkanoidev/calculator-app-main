@@ -65,3 +65,10 @@ secondOperand = displayValue.split(operator).pop();
   height: 600px;
 }
 ```
+
+### Author 👋
+
+ **Filip Ivanovic**
+
+* Website: [https://filipivanovic.netlify.app/](https://filipivanovic.netlify.app/)
+* Github: [@alkanoidev](https://github.com/alkanoidev)
